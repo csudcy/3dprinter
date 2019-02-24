@@ -124,26 +124,17 @@ M206 X-20
 
 ```
 ; Start Script
-M107 ; Make sure the fan is off
 M420 S1 Z10 ; Turn bed levelling on with fade
 G28 ; Home all axes
-; G92 ; Absolute positioning
-; G1 Z2 F3000 ; Move up
-; G1 Y5 X5 F3000 ; Bottom left
-; G92 E0 ; Reset extruder position
-; M116 ; Wait for temperature
-; G1 Z0 F3000 ; Move down
-; G1 Y45 E9 F300 ; Thick line, no reverse
-; G1 E8.5 Z1 ; Retract
 
-
-
-; Layer change script
-M106 ; Would you start the fans, please!
 
 
 
 ; End Script
+; Turn everything off
+M104 S0 ; Turn off hot end heater
+M107 ; Turn off the fans
+M140 S0 ; Disable heated bed
 ; Move everything out the way
 G92 E0 ; Reset extruder position
 G91 ; Relative positioning
@@ -151,10 +142,7 @@ G1 E-1 F1800 ; Retract 1mm
 G1 F1000 Z+10 ; Raise off print 10mm
 G90 ; Absolute positioning
 G1 X0 Y145 F3000 ; Position bed/head nicely
-; Turn everything off
-M104 S0 ; Turn off hot end heater
-M107 ; Turn off the fans
-M140 S0 ; Disable heated bed
+; And, finally...
 M84 ; Turn steppers off
 ```
 
