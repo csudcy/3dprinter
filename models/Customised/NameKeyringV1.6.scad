@@ -4,7 +4,7 @@
 Font_name = "Courier"; // [ Anton, Chewy, Forte, Gloria Hallelujah, Lobster, Luckiest Guy, Open Sans Extrabold, Oswald, Pacifico, Press Start 2P, Racing Sans One, Sigmar One, Snap ITC]
 
 // for your keyring
-Text = "Gaynor2";
+Text = "SIMRAN";
 
 // of the preview
 Rotation = 50; // [0:5:360]
@@ -12,19 +12,19 @@ Rotation = 50; // [0:5:360]
 /* [Spacing and Height] */
 
 letter_1_height = 8; // [-20:1:20]
-letter_1_space = 13.5; // [-20:1:20]
+letter_1_space = 13.6; // [-20:1:20]
 
 letter_2_height = 5; // [-20:1:20]
-letter_2_space = 12; // [-20:1:20]
+letter_2_space = 14.1; // [-20:1:20]
 
-letter_3_height = 7; // [-20:1:20]
-letter_3_space = 12.5; // [-20:1:20]
+letter_3_height = 5.5; // [-20:1:20]
+letter_3_space = 15.5; // [-20:1:20]
 
-letter_4_height = 5; // [-20:1:20]
-letter_4_space = 13; // [-20:1:20]
+letter_4_height = 6; // [-20:1:20]
+letter_4_space = 16; // [-20:1:20]
 
-letter_5_height = 6; // [-20:1:20]
-letter_5_space = 13; // [-20:1:20]
+letter_5_height = 6.5; // [-20:1:20]
+letter_5_space = 16; // [-20:1:20]
 
 letter_6_height = 7; // [-20:1:20]
 letter_6_space = 12.75; // [-20:1:20]
