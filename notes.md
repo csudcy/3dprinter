@@ -91,11 +91,11 @@ M92 X80.00 Y80.00 Z4000.00 E100.00
 ; Steps per unit:
 ; Default: M92 X80.00 Y80.00 Z4000.00 E100.00
 ; Old setting: M92 E85.00
-M92 E103.1
+; APPLIED IN FIRMWARE ; M92 E103.1
 
 ; Maximum feedrates (mm/s):
 ; Default: M203 X200.00 Y200.00 Z5.00 E25.00
-M203 X100.00 Y100.00 Z3.00
+; APPLIED IN FIRMWARE ; M203 X100.00 Y100.00 Z3.00
 
 ; Advanced variables: S=Min feedrate (mm/s), T=Min travel feedrate (mm/s), B=minimum segment time (ms), X=maximum XY jerk (mm/s),  Z=maximum Z jerk (mm/s),  E=maximum E jerk (mm/s)
 ; Default: M205 S0.00 T0.00 B20000 X20.00 Y20.00 Z0.40 E5.00
@@ -103,14 +103,23 @@ M205 X10.00 Y10.00
 
 ; PID settings (Extruder):
 ; Default: M301 P22.20 I1.08 D114.00
-M301 P29.76 I2.33 D95.07
+; APPLIED IN FIRMWARE ; M301 P29.76 I2.33 D95.07
 
 ; PID settings (Bed)
 ; Default: M304 P441.29 I54.30 D896.54
-M304 P340.44 I66.60 D435.03
+; APPLIED IN FIRMWARE ; M304 P340.44 I66.60 D435.03
 
 ; Home offset (mm)
 ; Default: M206 X0.00 Y0.00 Z0.00
+M206 X-20
+
+
+; Compact version
+; M92 E103.1
+; M203 X100.00 Y100.00 Z3.00
+M205 X10.00 Y10.00
+; M301 P29.76 I2.33 D95.07
+; M304 P340.44 I66.60 D435.03
 M206 X-20
 
 ; M500 ; Save settings
@@ -178,3 +187,17 @@ EXP1 = LCD
 EXP2 = SD
 
 One end of the cables needs to be reversed!
+
+
+# Motors
+
+* A4988 Drivers
+* Driver pot goes away from the edge of the mainboard
+* [Zapp SY42STH47-1684B](https://www.zappautomation.co.uk/sy42sth47-1684b-high-torque-hybrid-stepper-motors.html)
+** 1.8 degrees, 2.8v, 1.68A
+* Tuning:
+** **HAVE YOU APPLIED YOUR SETTINGS YET???**
+** https://matterhackers.dozuki.com/Guide/Tuning+Motor+Current/37
+** Current Limit = VREF × 2.5
+** VREF (EXY) = 1.68 / 2.5 = 0.67v
+** VREF (Z) = 2 * 1.68 / 2.5 = 1.34v
