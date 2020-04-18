@@ -91,36 +91,39 @@ M92 X80.00 Y80.00 Z4000.00 E100.00
 ; Steps per unit:
 ; Default: M92 X80.00 Y80.00 Z4000.00 E100.00
 ; Old setting: M92 E85.00
-; APPLIED IN FIRMWARE ; M92 E103.1
+; M92 E112
+; APPLIED IN FIRMWARE - DEFAULT_AXIS_STEPS_PER_UNIT
 
 ; Maximum feedrates (mm/s):
 ; Default: M203 X200.00 Y200.00 Z5.00 E25.00
-; APPLIED IN FIRMWARE ; M203 X100.00 Y100.00 Z3.00
+; M203 X100.00 Y100.00 Z3.00
+; APPLIED IN FIRMWARE - DEFAULT_MAX_FEEDRATE
 
 ; Advanced variables: S=Min feedrate (mm/s), T=Min travel feedrate (mm/s), B=minimum segment time (ms), X=maximum XY jerk (mm/s),  Z=maximum Z jerk (mm/s),  E=maximum E jerk (mm/s)
 ; Default: M205 S0.00 T0.00 B20000 X20.00 Y20.00 Z0.40 E5.00
-M205 X10.00 Y10.00
+; M205 X10.00 Y10.00
+; Not sure this is used with junction deviation enabled?
 
 ; PID settings (Extruder):
 ; Default: M301 P22.20 I1.08 D114.00
-; APPLIED IN FIRMWARE ; M301 P29.76 I2.33 D95.07
+; Run PID tuning (should have fan on): M303 S190 C5
+; M304 P24.47 I1.01 D147.84
+; APPLIED IN FIRMWARE - DEFAULT_Kp, DEFAULT_Ki, DEFAULT_Kd
 
 ; PID settings (Bed)
 ; Default: M304 P441.29 I54.30 D896.54
-; APPLIED IN FIRMWARE ; M304 P340.44 I66.60 D435.03
+; M304 P340.44 I66.60 D435.03
+; APPLIED IN FIRMWARE - DEFAULT_bedKp, DEFAULT_bedKi, DEFAULT_bedKd
+
 
 ; Home offset (mm)
 ; Default: M206 X0.00 Y0.00 Z0.00
-M206 X-20
+; M206 X-27 Y-6
+; APPLIED IN FIRMWARE - X_MIN_POS, Y_MIN_POS
 
 
 ; Compact version
-; M92 E103.1
-; M203 X100.00 Y100.00 Z3.00
-M205 X10.00 Y10.00
-; M301 P29.76 I2.33 D95.07
-; M304 P340.44 I66.60 D435.03
-M206 X-20
+; M205 X10.00 Y10.00
 
 ; M500 ; Save settings
 ; M501 ; Reset settings to EEPROM
