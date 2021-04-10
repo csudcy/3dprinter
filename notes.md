@@ -1,88 +1,3 @@
-# Old Startup Output
-
-```
-Printer is now online.
-echo:Marlin 1.1.0-RC8
-echo: Last Updated: 2016-12-06 12:00 | Author: (none, default config)
-Compiled: Jan 26 2017
-echo: Free Memory: 1296  PlannerBufferBytes: 1136
-echo:V27 stored settings retrieved (398 bytes)
-echo:Steps per unit:
-echo:  M92 X80.00 Y80.00 Z4000.00 E85.00
-echo:Maximum feedrates (mm/s):
-echo:  M203 X100.00 Y100.00 Z3.00 E25.00
-echo:Maximum Acceleration (mm/s2):
-echo:  M201 X3000 Y3000 Z100 E10000
-echo:Accelerations: P=printing, R=retract and T=travel
-echo:  M204 P3000.00 R3000.00 T3000.00
-echo:Advanced variables: S=Min feedrate (mm/s), T=Min travel feedrate (mm/s), B=minimum segment time (ms), X=maximum XY jerk (mm/s),  Z=maximum Z jerk (mm/s),  E=maximum E jerk (mm/s)
-echo:  M205 S0.00 T0.00 B20000 X10.00 Y10.00 Z0.40 E5.00
-echo:Home offset (mm)
-echo:  M206 X0.00 Y0.00 Z0.00
-echo:PID settings:
-echo:  M301 P29.76 I2.33 D95.07
-echo:  M304 P340.44 I66.60 D435.03
-echo:Filament settings: Disabled
-echo:  M200 D3.00
-echo:  M200 D0
-```
-
-Setup commands:
-```
-M201 X3000 Y3000 Z100 E10000
-M203 X100.00 Y100.00 Z3.00 E25.00
-M204 P3000.00 R3000.00 T3000.00
-M205 S0.00 T0.00 B20000 X10.00 Y10.00 Z0.40 E5.00
-M206 X0.00 Y0.00 Z0.00
-M301 P29.76 I2.33 D95.07
-M304 P340.44 I66.60 D435.03
-M92 X80.00 Y80.00 Z4000.00 E85.00
-```
-
-
-# New Startup Ouptut
-
-```
-echo:Marlin 1.1.7
-echo: Last Updated: 2017-12-15 12:00 | Author: (none, default config)
-echo:Compiled: Jan 27 2019
-echo: Free Memory: 1352  PlannerBufferBytes: 1200
-echo:EEPROM version mismatch (EEPROM=V27 Marlin=V47)
-echo:Hardcoded Default Settings Loaded
-echo:  G21    ; Units in mm
-echo:Filament settings: Disabled
-echo:  M200 D1.75
-echo:  M200 D0
-echo:Steps per unit:
-echo:  M92 X80.00 Y80.00 Z4000.00 E100.00
-echo:Maximum feedrates (units/s):
-echo:  M203 X200.00 Y200.00 Z5.00 E25.00
-echo:Maximum Acceleration (units/s2):
-echo:  M201 X3000 Y3000 Z100 E10000
-echo:Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
-echo:  M204 P3000.00 R3000.00 T3000.00
-echo:Advanced: S<min_feedrate> T<min_travel_feedrate> B<min_segment_time_us> X<max_xy_jerk> Z<max_z_jerk> E<max_e_jerk>
-echo:  M205 S0.00 T0.00 B20000 X20.00 Y20.00 Z0.40 E5.00
-echo:Home offset:
-echo:  M206 X0.00 Y0.00 Z0.00
-echo:PID settings:
-echo:  M301 P22.20 I1.08 D114.00
-echo:  M304 P441.29 I54.30 D896.54
-```
-
-Setup commands:
-```
-M201 X3000 Y3000 Z100 E10000
-M203 X200.00 Y200.00 Z5.00 E25.00
-M204 P3000.00 R3000.00 T3000.00
-M205 S0.00 T0.00 B20000 X20.00 Y20.00 Z0.40 E5.00
-M206 X0.00 Y0.00 Z0.00
-M301 P22.20 I1.08 D114.00
-M304 P441.29 I54.30 D896.54
-M92 X80.00 Y80.00 Z4000.00 E100.00
-```
-
-
 # My Setup
 
 ```
@@ -103,11 +18,12 @@ M92 X80.00 Y80.00 Z4000.00 E100.00
 ; Default: M205 S0.00 T0.00 B20000 X20.00 Y20.00 Z0.40 E5.00
 ; M205 X10.00 Y10.00
 ; Not sure this is used with junction deviation enabled?
+; Doesn't seem to be set anymore?
 
 ; PID settings (Extruder):
 ; Default: M301 P22.20 I1.08 D114.00
 ; Run PID tuning (should have fan on): M303 S190 C5
-; M304 P24.47 I1.01 D147.84
+; M301 P24.47 I1.01 D147.84
 ; APPLIED IN FIRMWARE - DEFAULT_Kp, DEFAULT_Ki, DEFAULT_Kd
 
 ; PID settings (Bed)
