@@ -12,13 +12,13 @@ POT_HEIGHT = 30;
 // Connector settings
 POT_GAP = 4;
 CONNECTOR_THICKNESS = 2.5;
-CONNECTOR_LOWER_LENGTH = POT_INNER_RADIUS / 4;
-CONNECTION_LOWER_HEIGHT = POT_HEIGHT / 2;
+CONNECTOR_LOWER_LENGTH = 1;
+CONNECTOR_LOWER_HEIGHT = POT_HEIGHT / 2;
 
 // Base
 BASE_THICKNESS = 1.5;
 BASE_CORNER_RADIUS = 5;
-BASE_HEIGHT = CONNECTION_LOWER_HEIGHT + 2;
+BASE_HEIGHT = CONNECTOR_LOWER_HEIGHT + 2;
 BASE_WALL_THICKNESS = 2;
 GRID_WALL_THICKNESS = 1.5;
 GRID_LOWER_LENGTH = POT_INNER_RADIUS / 2;
@@ -27,9 +27,8 @@ GRID_LOWER_HEIGHT = BASE_HEIGHT / 2;
 // Tray Calculated
 POT_OUTER_RADIUS = POT_INNER_RADIUS + POT_WALL_THICKNESS;
 POT_TOTAL_WH = 2*POT_OUTER_RADIUS + POT_GAP;
-POT_POT_LENGTH = sqrt(2 * POT_TOTAL_WH * POT_TOTAL_WH);
 CONNECTOR_HALF_WIDTH = CONNECTOR_THICKNESS / 2;
-CONNECTOR_LENGTH = POT_POT_LENGTH - 2 * POT_INNER_RADIUS;
+CONNECTOR_LENGTH = POT_GAP + 2*POT_WALL_THICKNESS;
 CONNECTOR_GAP_LENGTH = CONNECTOR_LENGTH - 2 * CONNECTOR_LOWER_LENGTH;
 
 TRAY_OFFSET_XY = POT_OUTER_RADIUS+BASE_WALL_THICKNESS+POT_GAP/2;
@@ -63,13 +62,9 @@ module connector(angle) {
   rotate(angle) {
     translate([-CONNECTOR_HALF_WIDTH, POT_INNER_RADIUS]) {
       difference() {
-        linear_extrude(POT_HEIGHT) {
-          square(size=[CONNECTOR_THICKNESS, CONNECTOR_LENGTH]);
-        }
-        linear_extrude(CONNECTION_LOWER_HEIGHT) {
-          translate([0, CONNECTOR_LOWER_LENGTH]) {
-            square(size=[CONNECTOR_THICKNESS, CONNECTOR_GAP_LENGTH]);
-          }
+        cube(size=[CONNECTOR_THICKNESS, CONNECTOR_LENGTH, POT_HEIGHT]);
+        translate([0, CONNECTOR_LOWER_LENGTH]) {
+          cube(size=[CONNECTOR_THICKNESS, CONNECTOR_GAP_LENGTH, CONNECTOR_LOWER_HEIGHT]);
         }
       }
     }
@@ -102,15 +97,13 @@ module tray_top() {
 
           if (y > 0) {
             // Pot connectors
-            if (x > 0) {
-              // South West
-              connector(180 - 45);
-            }
+            // South West
+            connector(180);
+          }
 
-            if (x < POTS_WIDE_HIGH - 1) {
-              // South East
-              connector(180 + 45);
-            }
+          if (x > 0) {
+            // South East
+            connector(90);
           }
         }
       }
@@ -163,5 +156,5 @@ module tray_bottom() {
   }
 }
 
-tray_bottom();
-// tray_top();
+// tray_bottom();
+tray_top();
